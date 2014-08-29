@@ -1,0 +1,20 @@
+header
+  .sticky-nav
+    a#mobile-nav.menu-nav href="#menu-nav"
+    #logo
+      a#goUp href="#home-slider" title="#{t 'full_title'}" = t 'title'
+    nav#menu
+      ul#menu-nav
+        li.current
+          a href="#home-slider" = t 'home'
+        li
+          a href="#instro" = t 'instro.title'
+        li
+          a href="#event" = t 'event.title'
+        li
+          a href="#teacher" = t 'teacher.title'
+        li
+          a href="#contact" = t 'contact.title'
+        li
+          a.external[href="shortcodes.html"]
+            | Shortcodes

@@ -1,0 +1,39 @@
+.page#event
+  .container
+    / title page
+    .row
+      .span12
+        .title-page
+          h2.title = t 'event.title'
+          h3.title-description = t 'event.des'
+    / Events
+    .row
+      .span3
+        / Filter
+        nav#options.work-nav
+          ul#filters.option-set[data-option-key="filter"]
+            li.type-work
+              | Type of Work
+            li
+              a.selected[href="#filter" data-option-value="*"]
+                | All Projects
+            li
+              a[href="#filter" data-option-value=".design"]
+                | Design
+            li
+              a[href="#filter" data-option-value=".photography"]
+                | Photography
+            li
+              a[href="#filter" data-option-value=".video"]
+                | Video
+      / Event List
+      .span9
+        .row
+          section#projects
+            ul#thumbs
+              / model like this
+              li.item-thumbs.span3.design
+                a.hover-wrap.fancybox[data-fancybox-group="gallery" title="The City" href="_include/img/work/full/image-01-full.jpg"]
+                  span.overlay-img
+                  span.overlay-img-thumb.font-icon-plus
+                img[src="_include/img/work/thumbs/image-01.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."]

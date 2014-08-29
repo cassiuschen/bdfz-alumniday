@@ -1,0 +1,36 @@
+doctype html
+<!--[if lt IE 7]>
+html class="no-js lt-ie9 lt-ie8 lt-ie7"
+<![endif]-->
+<!--[if (IE 7)&!(IEMobile)]>
+html class="no-js lt-ie9 lt-ie8"
+<![endif]-->
+<!--[if (IE 8)&!(IEMobile)]>
+html class="no-js lt-ie9"
+<![endif]-->
+<!--[if (IE 9)]>
+html class="no-js ie9"
+<![endif]-->
+<!--[if gt IE 8]><!-->
+html
+<!--<![endif]-->
+  head
+    meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+    meta name="description" content="北京大学附属中学2014年度校友日"
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    meta name="HandheldFriendly" content="true"
+    meta name="MobileOptimized" content="320"
+    title 北大附中校友日 | 2014
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => false
+    = javascript_include_tag 'application', 'data-turbolinks-track' => false
+    <!--[if IEMobile]>
+      meta http-equiv="cleartype" content="on"
+    <![endif]-->
+    link rel="shortcut icon" href="#"
+    link rel="apple-touch-icon" href="#"
+    link rel="apple-touch-icon" sizes="114x114" href="#"
+    link rel="apple-touch-icon" sizes="72x72" href="#"
+    link rel="apple-touch-icon" sizes="144x144" href="#"
+    = csrf_meta_tags
+  body
+    = yield
