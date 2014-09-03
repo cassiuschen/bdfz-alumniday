@@ -11,29 +11,30 @@
       .span3
         / Filter
         nav#options.work-nav
-          ul#filters.option-set[data-option-key="filter"]
+          ul#filters.option-set data-option-key="filter"
             li.type-work
-              | Type of Work
+              = t 'event.type.title'
             li
-              a.selected[href="#filter" data-option-value="*"]
-                | All Projects
+              a.selected href="#filter" data-option-value="*"
+                = t 'event.type.all'
             li
-              a[href="#filter" data-option-value=".design"]
-                | Design
+              a href="#filter" data-option-value=".sport"
+                = t 'event.type.sport'
             li
-              a[href="#filter" data-option-value=".photography"]
-                | Photography
+              a href="#filter" data-option-value=".show"
+                = t 'event.type.show'
             li
-              a[href="#filter" data-option-value=".video"]
-                | Video
+              a href="#filter" data-option-value=".course"
+                = t 'event.type.course'
       / Event List
       .span9
         .row
           section#projects
             ul#thumbs
-              / model like this
-              li.item-thumbs.span3.design
-                a.hover-wrap.fancybox[data-fancybox-group="gallery" title="The City" href="_include/img/work/full/image-01-full.jpg"]
-                  span.overlay-img
-                  span.overlay-img-thumb.font-icon-plus
-                img[src="_include/img/work/thumbs/image-01.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis."]
+              - for item in Event.all
+                li.item-thumbs.span3.design
+                  a.hover-wrap.fancybox data-fancybox-group="gallery" title="#{item.title}" href="#{item.thumb.url}"
+                    span.overlay-img
+                    span.overlay-img-thumb.font-icon-plus
+                  img src="#{item.thumb.url}" alt="#{item.des}" width="100%"
+                  span style="text-align:center !important;" = item.title

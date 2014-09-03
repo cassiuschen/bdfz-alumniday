@@ -4,36 +4,35 @@
       .span12
         .title-page
           h2.title
-            | Get in Touch
+            = t 'contact.title'
           h3.title-description
-            | We’re currently accepting new client projects. We look forward to serving you.
+            = t 'contact.des'
     .row
       .span9
-        form#contact-form.contact-form[action="#"]
+        form#contact-form.contact-form action="/message" method="post"
           p.contact-name
-            input#contact_name[type="text" placeholder="Full Name" value="" name="name"]
+            input#contact_name type="text" placeholder="#{t 'contact.full_name'}" value="" name="message[owner]"
           p.contact-email
-            input#contact_email[type="text" placeholder="Email Address" value="" name="email"]
+            input#contact_email type="text" placeholder="#{t 'contact.email'}" value="" name="message[email]"
           p.contact-message
-            textarea#contact_message[placeholder="Your Message" name="message" rows="15" cols="40"]
+            textarea#contact_message placeholder="#{t 'contact.content'}" name="message[content]" rows="15" cols="40"
           p.contact-submit
-            a#contact-submit.submit[href="#"]
-              | Send Your Email
+            button#contact-submit.submit type="submit" style="border:none;"
+              = t 'contact.submit'
           #response
 
       .span3
         .contact-details
           h3
-            | Contact Details
+            = t 'contact.detail.title'
           ul
             li
-              a[href="#"]
-                | hello@brushed.com
+              a href="mailto:#{t 'contact.detail.email'}"
+                = t 'contact.detail.email'
             li
-              | (916) 375-2525
+              a href="phone:#{t 'contact.detail.phone'}"
+                = t 'contact.detail.phone'
             li
-              |  Brushed Studio 
+              = t 'contact.detail.admin'
               br
-              |  5240 Vanish Island. 105 
-              br
-              |  Unknow 
+              = t 'contact.detail.address'

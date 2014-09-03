@@ -1,4 +1,4 @@
-#about.page-alternate
+#teacher.page-alternate
   .container
     .row
       .span12
@@ -6,78 +6,15 @@
           h2.title = t 'teacher.title'
           h3.title-description = t 'teacher.des'
     .row
-      .span4.profile
-        .image-wrap
-          .hover-wrap
-            span.overlay-img
-            span.overlay-text-thumb
-              | CTO/Founder
-          img[src="_include/img/profile/profile-01.jpg" alt="John Doe"]
-        h3.profile-name
-          | John Doe
-        p.profile-description
-          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat 
-          a[href="#"]
-            | hendrerit dictum
-          | . Praesent porta, purus eget sagittis imperdiet, nulla mi ullamcorper metus, id hendrerit metus diam vitae est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-        .social
-          ul.social-icons
-            li
-              a[href="#"]
-                i.font-icon-social-twitter
-            li
-              a[href="#"]
-                i.font-icon-social-dribbble
-            li
-              a[href="#"]
-                i.font-icon-social-facebook
-      .span4.profile
-        .image-wrap
-          .hover-wrap
-            span.overlay-img
-            span.overlay-text-thumb
-              | Creative Director
-          img[src="_include/img/profile/profile-02.jpg" alt="Jane Helf"]
-        h3.profile-name
-          | Jane Helf
-        p.profile-description
-          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat 
-          a[href="#"]
-            | hendrerit dictum
-          | . Praesent porta, purus eget sagittis imperdiet, nulla mi ullamcorper metus, id hendrerit metus diam vitae est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-        .social
-          ul.social-icons
-            li
-              a[href="#"]
-                i.font-icon-social-twitter
-            li
-              a[href="#"]
-                i.font-icon-social-email
-      .span4.profile
-        .image-wrap
-          .hover-wrap
-            span.overlay-img
-            span.overlay-text-thumb
-              | Lead Designer
-          img[src="_include/img/profile/profile-03.jpg" alt="Joshua Insanus"]
-        h3.profile-name
-          | Joshua Insanus
-        p.profile-description
-          | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ac augue at erat 
-          a[href="#"]
-            | hendrerit dictum
-          | . Praesent porta, purus eget sagittis imperdiet, nulla mi ullamcorper metus, id hendrerit metus diam vitae est. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
-        .social
-          ul.social-icons
-            li
-              a[href="#"]
-                i.font-icon-social-twitter
-            li
-              a[href="#"]
-                i.font-icon-social-linkedin
-            li
-              a[href="#"]
-                i.font-icon-social-google-plus
-            li
-              a[href="#"]
-                i.font-icon-social-vimeo
+      - for teacher in Teacher.all
+        .span4.profile
+          .image-wrap
+            .hover-wrap
+              span.overlay-img
+              span.overlay-text-thumb
+                = teacher.name
+            img src="#{teacher.photo.url}" alt="#{teacher.name}" style="max-height:30px;"
+          h3.profile-name
+            = teacher.name
+          p.profile-description
+            = teacher.des

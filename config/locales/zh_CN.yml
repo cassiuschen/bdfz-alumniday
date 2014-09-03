@@ -31,6 +31,12 @@ zh_CN:
   event: 
     title: "活动"
     des: "这里还是一些奇奇怪怪的文字，引导网友对活动进行投票"
+    type:
+      title: "活动分类"
+      all: "所有活动"
+      sport: "体育类"
+      show: "展演类"
+      course: "课堂类"
 
   teacher: 
     title: "教师评选"
@@ -38,4 +44,16 @@ zh_CN:
 
   contact: 
     title: "联系我们"
+    des: "我们很吊，想跪舔就留言"
+    full_name: "称呼"
+    email: "电子邮箱"
+    content: "在这里留言"
+    submit: "提交留言"
+    detail: 
+      title: "详情"
+      email: "xiaoyouri@pkuschool.edu.cn"
+      phone: "159-1036-4815"
+      admin: "北京大学附属中学"
+      address: "北京市，海淀区，大泥湾路"
+
 
