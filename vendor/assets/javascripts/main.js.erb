@@ -202,7 +202,8 @@ BRUSHED.contactForm = function(){
 					$('#contact-form textarea').val('');
 				}
 
-				$('#response').empty().html(response.html);
+        $('#response').empty().html(response.html);
+        $('#success_modal').modal('show');
 			}
 		});
 		return false;

@@ -34,7 +34,8 @@
         h3.profile-name
           | 我还想听 TA 的课！
         p.profile-description
-          | 除了上述的几位，附中还有许多其他优秀的老师。如果你想再听 TA 讲一节熟悉的课程，请点击上方的加号输入老师姓名，我们会尽力为你安排。= render 'home/add_teacher'
+          | 除了上述的几位，附中还有许多其他优秀的老师。如果你想再听 TA 讲一节熟悉的课程，请点击上方的加号输入老师姓名，我们会尽力为你安排。
+= render 'home/add_teacher'
 
 - for teacher in Teacher.all
   - if teacher.courses
@@ -66,6 +67,7 @@ coffee:
       success: () ->
         $("##{id}_modal").modal 'hide'
         $("##{id}_modal>.modal-footer").html '<a aria-hidden="true" class="btn btn-success" data-dismiss="modal">知道了</a>'
+        $('#success_modal').modal 'show'
 
 
 style
