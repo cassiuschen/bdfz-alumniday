@@ -25,3 +25,12 @@
 
  //@import "bootstrap-sprockets";
  @import "bootstrap";
+ .modal-header {
+   background-color: #777;
+   border-radius: 0px;
+ }
+
+ .modal-footer {
+   background-color: #444;
+   border-radius: 0px;
+ }

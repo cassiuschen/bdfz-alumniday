@@ -13,8 +13,61 @@
               span.overlay-img
               span.overlay-text-thumb
                 = teacher.name
-            img src="#{teacher.photo.url}" alt="#{teacher.name}" style="max-height:30px;"
+            img src="#{teacher.photo.url}" alt="#{teacher.name}"
           h3.profile-name
             = teacher.name
           p.profile-description
             = teacher.des
+          - if teacher.courses
+            p style="margin-bottom:0;" 开设课程
+            ul
+              - for c in teacher.courses.sort {|x,y| y.vote - x.vote}
+                li
+                  a.course data-toggle="modal" data-target="##{c.id}_modal" = c.title
+      .span4.profile
+        .image-wrap href="#addTeacher" data-toggle="modal" style="max-height:270px;"
+          .hover-wrap
+            span.overlay-img
+            span.overlay-text-thumb
+              | +
+          = image_tag 'who.png', alt: "申请上课"
+        h3.profile-name
+          | 我还想听 Ta 的课！
+        p.profile-description
+          | 除了上述的几位，附中仍然有许多优秀的老师，如果你想再听 Ta 讲上一节熟悉的课程，请点击上方的加号进行申请，我们会尽快为你联系安排相关事宜~
+= render 'home/add_teacher'
+
+- for teacher in Teacher.all
+  - if teacher.courses
+    - for c in teacher.courses
+      .modal.hide.fade id="#{c.id}_modal"
+        .modal-header
+          button.close type="button" data-dismiss="modal"
+            | &times;
+          h3 = c.title
+        .modal-body.controls style="padding-left: 45px;"
+          p
+            = c.detail
+        .modal-footer
+          - if session["vote_for_#{c.id}".to_sym]
+            a.btn.btn-success data-dismiss="modal" aria-hidden="true" 知道了
+          - else
+            a.btn href="#teacher" data-dismiss="modal" aria-hidden="true" 取消
+            a.btn.btn-success id="vote_for_#{c.id}" onclick="window.vote(#{c.id})" data-course-id="#{c.id}"
+              | 我想上这门课
+coffee:
+  window.vote  = (id) ->
+    $.ajax
+      type: 'GET',
+      url: '/add/vote',
+      data:
+        type: 'voteCourse',
+        course:
+          id: id
+      success: () ->
+        $("##{id}_modal").modal 'hide'
+        $("##{id}_modal>.modal-footer").html '<a aria-hidden="true" class="btn btn-success" data-dismiss="modal">知道了</a>'
+
+
+style
+  | li:before {content:""}

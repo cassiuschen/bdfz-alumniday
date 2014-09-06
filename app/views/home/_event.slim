@@ -26,15 +26,23 @@
             li
               a href="#filter" data-option-value=".course"
                 = t 'event.type.course'
+          dl
+            dd
+              a href="#contact" onclick="window.addEvent()"
+                = t 'event.type.add'
       / Event List
       .span9
         .row
           section#projects
             ul#thumbs
               - for item in Event.all
-                li.item-thumbs.span3.design
+                - sc = item.sym_to_class
+                li class="item-thumbs span3 #{sc[item.sym.to_s]}"
                   a.hover-wrap.fancybox data-fancybox-group="gallery" title="#{item.title}" href="#{item.thumb.url}"
                     span.overlay-img
                     span.overlay-img-thumb.font-icon-plus
                   img src="#{item.thumb.url}" alt="#{item.des}" width="100%"
                   span style="text-align:center !important;" = item.title
+coffee:
+  window.addEvent = () ->
+    $('textarea#contact_message').val('我是 ... 届毕业生 ... ，我希望校友日可以增设一个活动：\n')

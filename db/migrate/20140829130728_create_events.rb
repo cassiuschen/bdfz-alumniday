@@ -4,7 +4,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :title
       t.text :des
       t.string :thumb
-      t.integer :sym
+      t.integer :sym, default: 0
 
       t.timestamps
     end

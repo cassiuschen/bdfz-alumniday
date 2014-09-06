@@ -53,7 +53,7 @@ gem 'rails_admin_flatly_theme', :git => 'git://github.com/konjoot/rails_admin_fl
 
 # Uploader
 gem 'carrierwave'
-#gem 'mini_magic'
+gem 'mini_magick'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

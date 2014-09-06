@@ -23,5 +23,8 @@
 #= require jquery.fancybox-media
 #= require jquery.tweet
 #= require plugins
+#= require placeholder
 #= require main
-#= require_tree .
+#= require_self
+$(document).ready () ->
+   $('#circle').css 'opacity', '0'

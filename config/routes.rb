@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   root 'home#index'
   post 'message' => 'home#message'
 
+  get 'add/teacher' => 'home#add_teacher'
+  get 'add/vote' => 'home#vote'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

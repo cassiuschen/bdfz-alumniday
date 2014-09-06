@@ -1,0 +1,45 @@
+.modal.hide.fade#addTeacher
+  .modal-header
+    button.close type="button" data-dismiss="modal" aria-hidden="true"
+      | &times;
+    h3 你怀念的那位老师
+  .modal-body.controls style="padding-left: 45px;"
+    input#teacher_name.span6 type="text" placeholder="老师姓名"
+    input#teacher_depart.span2 type="text" placeholder="授课学科" style="margin-right: 5px;"
+    input#owner.span2 type="text" placeholder="你的姓名" style="margin-right: 5px;"
+    input#owner_year.span2 type="number" placeholder="毕业年份" style="margin-right: 5px;"
+    textarea#class.span6 rows="7" type="text" placeholder="想上神马课~"
+  .modal-footer
+    a.btn href="#teacher" data-dismiss="modal" aria-hidden="true" 取消
+    a.btn.btn-warning#addTeacherButton href="#teacher" 申请上课
+  coffee:
+    $('#addTeacherButton').on 'click', () ->
+      $.ajax
+        type: 'GET',
+        url: '/add/teacher',
+        data:
+          type: 'addTeacher',
+          teacher:
+            name: $('input#teacher_name').val()
+            type: $('input#teacher_depart').val()
+            course: $('textarea#class').val()
+            owner:
+              name: $('input#owner').val()
+              year: $('input#owner_year').val()
+        success: () ->
+          $('input#teacher_name').val("")
+          $('input#teacher_depart').val("")
+          $('textarea#class').val("")
+          $('#addTeacher').modal 'hide'
+          $('#success_modal').modal 'toggle'
+
+.modal.hide.fade#success_modal
+  .modal-header
+    button.close type="button" data-dismiss="modal" aria-hidden="true"
+      | &times;
+    h3 申请成功
+  .modal-body.controls style="padding-left: 45px;"
+    p
+      | 申请成功！我们在核对信息并与老师交流后将及时在网站上添加相关信息，感谢你对本届校友日的关注与支持！谢谢！
+  .modal-footer
+    a.btn.btn-success data-dismiss="modal" aria-hidden="true" href="#teacher" 我知道了
