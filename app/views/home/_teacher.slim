@@ -32,10 +32,9 @@
               | +
           = image_tag 'who.png', alt: "申请上课"
         h3.profile-name
-          | 我还想听 Ta 的课！
+          | 我还想听 TA 的课！
         p.profile-description
-          | 除了上述的几位，附中仍然有许多优秀的老师，如果你想再听 Ta 讲上一节熟悉的课程，请点击上方的加号进行申请，我们会尽快为你联系安排相关事宜~
-= render 'home/add_teacher'
+          | 除了上述的几位，附中还有许多其他优秀的老师。如果你想再听 TA 讲一节熟悉的课程，请点击上方的加号输入老师姓名，我们会尽力为你安排。= render 'home/add_teacher'
 
 - for teacher in Teacher.all
   - if teacher.courses
