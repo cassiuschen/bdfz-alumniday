@@ -82,5 +82,3 @@ test:
 production:
   <<: *default
   database: bdfz-alumnusday_production
-  username: bdfz-alumnusday
-  password: <%= ENV['BDFZ-ALUMNUSDAY_DATABASE_PASSWORD'] %>
